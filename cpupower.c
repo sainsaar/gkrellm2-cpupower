@@ -42,6 +42,7 @@
  *
  * date         version   comment
  * 30/01/2015   0.1       Started the project
+ * 30/01/2015   0.1.3     Minor documentation cleanup
  *
  *   gcc -Wall -fPIC -Wall `pkg-config --cflags gtk+-2.0` -c cpufreq.c
  *   gcc -shared -lcpufreq -Wl -o cpufreq.so cpufreq.o
@@ -453,9 +454,9 @@ static void apply_plugin_config(void) {
 static gchar  *plugin_info_text[] = {
   "<h>CPU frequency plugin\n",
   "gkrellm2-cpupower ",VERSION,", ",
-  "<ul> https://github.com/sainsaar/gkrellm2-cpupower\n",
+  "<ul>https://github.com/sainsaar/gkrellm2-cpupower\n",
   "by Christoph Winkelmann and Siim Ainsaar, ",
-  "<ul> ainsaar@gmail.com\n\n",
+  "<ul>ainsaar@gmail.com\n\n",
   "Enabling and disabling governor or slider display only takes effect\n",
   "after change of theme, change of width, or restart.\n\n",
   "The maximal frequency found during this run is saved for the next run\n",

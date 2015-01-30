@@ -7,3 +7,6 @@
 * 0.1.2     30.01.2015  Siim Ainsaar
 - Fix cpufreqnextgovernor to discard the header in the output of cpupower.
 
+* 0.1.3     30.01.2015  Siim Ainsaar
+- Minor documentation cleanup
+
