@@ -3,10 +3,10 @@
 cpu="$1"
 
 # determine actual governor
-actual_gov=`cpupower -c $cpu frequency-info -p | sed 's/.*\ //'`
+actual_gov=`cpupower -c $cpu frequency-info -p | tail -n 1 | sed 's/.*\ //'`
 
 # determine available governors
-avail_gov=`cpupower -c $cpu frequency-info -g`
+avail_gov=`cpupower -c $cpu frequency-info -g | tail -n 1`
 
 avail_gov1=`echo $avail_gov | sed "s/.*$actual_gov//"`
 avail_gov2=`echo $avail_gov | sed "s/$actual_gov.*//"`

@@ -4,3 +4,6 @@
 * 0.1.1     30.01.2015  Siim Ainsaar
 - Link to -lcpupower, not -lcpufreq
 
+* 0.1.2     30.01.2015  Siim Ainsaar
+- Fix cpufreqnextgovernor to discard the header in the output of cpupower.
+

@@ -42,7 +42,6 @@
  *
  * date         version   comment
  * 30/01/2015   0.1       Started the project
- * 30/01/2015   0.1.1     Link to -lcpupower, not -lcpufreq
  *
  *   gcc -Wall -fPIC -Wall `pkg-config --cflags gtk+-2.0` -c cpufreq.c
  *   gcc -shared -lcpufreq -Wl -o cpufreq.so cpufreq.o
