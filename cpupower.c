@@ -1,7 +1,10 @@
-/* cpufreq.c - requires GKrellmM 2.0.0 or higher
- *             requires cpufrequtils
+/* cpupower.c - requires GKrellmM 2.0.0 or higher
+ *              requires cpupower
  *
  * author: Christoph Winkelmann, <chw@tks6.net>
+ * ported to cpupower: Siim Ainsaar, <ainsaar@gmail.com>
+ *
+ * Changelog for gkrellm2-cpufreq:
  *
  * date         version   comment
  * 07/11/2003   0.1       initial release
@@ -35,6 +38,11 @@
  *                        SMP support
  * 15/07/2007   0.6.1     bugfix: segmentation fault on wakeup on SMP systems
  *
+ * Changelog for gkrellm2-cpupower:
+ *
+ * date         version   comment
+ * 30/01/2015   0.1       Started the project
+ *
  *   gcc -Wall -fPIC -Wall `pkg-config --cflags gtk+-2.0` -c cpufreq.c
  *   gcc -shared -lcpufreq -Wl -o cpufreq.so cpufreq.o
  *   gkrellm -p cpufreq.so
@@ -46,15 +54,15 @@
 #include <cpufreq.h>
 
 /* version number */
-#define  VERSION        "0.6.1"
+#define  VERSION        "0.1"
 
 /* name in the configuration tree */
-#define  CONFIG_NAME	"CPUfreq"
+#define  CONFIG_NAME	"CPUpower"
 
 /* theme subdirectory for custom images for this plugin  and
    gkrellmrc style name for custom settings
 */
-#define  STYLE_NAME	"cpufreq"
+#define  STYLE_NAME	"cpupower"
 
 #define NCPU_MAX 8
 
@@ -125,13 +133,13 @@ static void next_governor(unsigned int cpu) {
 
 static void governor_userspace(unsigned int cpu) {
   char cmd[length];
-  sprintf(cmd, "sudo cpufreq-set -c %u -g userspace", cpu);
+  sprintf(cmd, "sudo cpupower -c %u frequency-set -g userspace", cpu);
   system(cmd);
 }
 
 static void set_frequency(unsigned int cpu, unsigned long freq) {
   char cmd[length];
-  sprintf(cmd, "sudo cpufreq-set -c %u -f %lu", cpu, freq );
+  sprintf(cmd, "sudo cpupower -c %u frequency-set -f %lu", cpu, freq );
   system(cmd);
 }
 
@@ -444,10 +452,10 @@ static void apply_plugin_config(void) {
 
 static gchar  *plugin_info_text[] = {
   "<h>CPU frequency plugin\n",
-  "gkrellm2-cpufreq ",VERSION,", ",
-  "<ul> http://chw.tks6.net/gkrellm2-cpufreq/\n",
-  "by Christoph Winkelmann, ",
-  "<ul> chw@tks6.net\n\n",
+  "gkrellm2-cpupower ",VERSION,", ",
+  "<ul> https://github.com/sainsaar/gkrellm2-cpupower\n",
+  "by Christoph Winkelmann and Siim Ainsaar, ",
+  "<ul> ainsaar@gmail.com\n\n",
   "Enabling and disabling governor or slider display only takes effect\n",
   "after change of theme, change of width, or restart.\n\n",
   "The maximal frequency found during this run is saved for the next run\n",

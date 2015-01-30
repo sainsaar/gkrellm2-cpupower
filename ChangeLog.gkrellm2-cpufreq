@@ -1,0 +1,62 @@
+* 0.6.1     15.07.2007  Christoph Winkelmann
+- bugfix: segmentation fault on wakeup on SMP systems (patch from David Serrano)
+
+* 0.6       02.10.2006  Christoph Winkelmann
+- base on cpufrequtils
+- drop temperature support
+- SMP support
+
+* 0.5.5     24.11.2005  Christoph Winkelmann
+- bugfix: configuration was not loaded correctly (patch from Paul Cannon)
+
+* 0.5.4     09.11.2005  Christoph Winkelmann
+- remove degree sign for encoding incompatibilities
+- display slider optionally
+
+* 0.5.3     01.11.2005  Christoph Winkelmann
+- fixed typo in target 'install-sudo' in Makefile
+- change governor via new script for more flexibility (ondemand governor)
+- check for ondemand governor when reading frequency
+
+* 0.5.2     18.10.2004  Christoph Winkelmann
+- cpufreqset does not assume order in scaling_available_frequencies
+
+* 0.5.1     16.03.2004  Christoph Winkelmann
+- scaling factor for temperature added
+
+* 0.5       15.03.2004  Christoph Winkelmann
+- update plugin once a second only
+- display cpu temperature optionally
+- display cpufreq governor optionally
+- toggle governor when clicking on governor name
+- optionally set userspace governor when moving slider
+- reserve more height for text and slider
+- added 'install-sudo' target to Makefile
+- check for >1 cpu in cpufreqset
+
+* 0.4       31.01.2004  Christoph Winkelmann
+- make economic and efficient use of available interfaces
+
+* 0.3.3     28.01.2004  Christoph Winkelmann
+- supports new /sys (2.6.x kernel) interface (to be improved)
+
+* 0.3.2     12.01.2004  Christoph Winkelmann
+- improved documentation
+- improved Makefile
+
+* 0.3.1     12.01.2004  Christoph Winkelmann
+- always get cpu frequency from /proc/cpuinfo
+- get khz_max with khz
+- save khz_max in configuration
+- hand over absolute frequency to cpufreqset
+
+* 0.3       31.12.2003  Christoph Winkelmann
+- get cpu frequency from /proc/cpuinfo if /proc/sys/cpu/ unavailable
+- added numerical display of cpu frequency
+- display slider only
+
+* 0.2       12.12.2003  Christoph Winkelmann
+- added slider to set cpu freqency
+
+* 0.1       07.11.2003  Christoph Winkelmann
+- initial version

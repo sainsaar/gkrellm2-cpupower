@@ -1,10 +1,11 @@
-README for gkrellm2-cpufreq
-===========================
+README for gkrellm2-cpupower
+============================
 Christoph Winkelmann <chw@tks6.net>
+Siim Ainsaar <ainsaar@gmail.com>
 
 Description:
 ------------
-gkrellm2-cpufreq consists of two components:
+gkrellm2-cpupower consists of two components:
 
 1) A plugin for gkrellm 2.0 (http://www.gkrellm.net) called
    cpufreq.so displaying the current CPU frequency numerically and by
@@ -24,7 +25,7 @@ The slider position also represents the current frequency, on the left
 for 0, on the right for the maximal frequency, which is determined as
 the maximum found
 - in the configuration file
-- using cpufrequtils
+- using cpupower
 - in current operation
 Note: The maximal frequency found is NOT saved in the configuration
 file unless the configuration page is viewed by pressing the right

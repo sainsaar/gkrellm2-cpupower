@@ -1,13 +1,14 @@
-Installation of gkrellm2-cpufreq
-================================
+Installation of gkrellm2-cpupower
+=================================
 Christoph Winkelmann <chw@tks6.net>
+Siim Ainsaar <ainsaar@gmail.com>
 
 Requirements
 ------------
 * gkrellm 2.0.0 or higher
 * linux kernel >= 2.6.0 including the respective cpufreq-driver for your CPU
-* cpufrequtils
-  (see http://www.kernel.org/pub/linux/utils/kernel/cpufreq/cpufrequtils.html)
+* cpupower
+  (included in the Linux kernel source under tools/power/cpupower)
 
 If you want to change the CPU frequency and/or cpufreq governor using
 the plugin, you need moreover:
@@ -28,8 +29,8 @@ Post-Install
 1) To allow the plugin to set frequencies and governors, add the following lines
    to your /etc/sudoers file, using visudo (as root, replacing /usr/bin with
    the path to cpufreq-set on your system):
-   <user> <hostname> = (root) NOPASSWD: /usr/bin/cpufreq-set -c [0-9]* -g userspace
-   <user> <hostname> = (root) NOPASSWD: /usr/bin/cpufreq-set -c [0-9]* -f [0-9]*
+   <user> <hostname> = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -g userspace
+   <user> <hostname> = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -f [0-9]*
    <user> <hostname> = (root) NOPASSWD: /usr/sbin/cpufreqnextgovernor
    where <user> is the user that runs gkrellm
    and <hostname> is the name of the host to set the CPU frequency/governor.
