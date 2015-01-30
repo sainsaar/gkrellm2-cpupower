@@ -13,3 +13,7 @@
 * 0.1.4     30.01.2015  Siim Ainsaar
 - Documentation cleanup (mostly leftover cpufreq -> cpupower)
 
+* 0.1.5     30.01.2015  Siim Ainsaar
+- Made the original author's name less prominent, because he is not involved
+- in this project.
+

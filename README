@@ -1,6 +1,5 @@
 README for gkrellm2-cpupower
 ============================
-Christoph Winkelmann <chw@tks6.net>
 Siim Ainsaar <ainsaar@gmail.com>
 
 Description:
@@ -47,7 +46,8 @@ License:
 --------
 See file LICENSE
 
-Anything else:
---------------
-Suggestions are welcome! <chw@tks6.net>
+History:
+--------
+This is port of gkrellm2-cpufreq originally written by
+Christoph Winkelmann <chw@tks6.net>.
 
