@@ -44,9 +44,9 @@
  * 30/01/2015   0.1       Started the project
  * 30/01/2015   0.1.3     Minor documentation cleanup
  *
- *   gcc -Wall -fPIC -Wall `pkg-config --cflags gtk+-2.0` -c cpufreq.c
- *   gcc -shared -lcpufreq -Wl -o cpufreq.so cpufreq.o
- *   gkrellm -p cpufreq.so
+ *   gcc -Wall -fPIC -Wall `pkg-config --cflags gtk+-2.0` -c cpupower.c
+ *   gcc -shared -lcpupower -Wl -o cpupower.so cpupower.o
+ *   gkrellm -p cpupower.so
  *  
  *  Adapted from the official plugin-demos
  */

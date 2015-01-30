@@ -8,13 +8,13 @@ Description:
 gkrellm2-cpupower consists of two components:
 
 1) A plugin for gkrellm 2.0 (http://www.gkrellm.net) called
-   cpufreq.so displaying the current CPU frequency numerically and by
+   cpupower.so displaying the current CPU frequency numerically and by
    the position of a slider, optionally the current cpufreq governor
    and the CPU temperature from /proc/acpi
 2) A bash script called cpufreqnextgovernor allowing to set the cpufreq
    governor via the plugin.
 
-The plugin reads the CPU frequency and the cpufreq governor using cpufrequtils
+The plugin reads the CPU frequency and the cpufreq governor using cpupower
 and displays it.
 
 Clicking on the governor name will toggle the governor.
