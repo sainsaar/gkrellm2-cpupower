@@ -1,3 +1,6 @@
 * 0.1       30.01.2015  Siim Ainsaar
 - Ported gkrellm2-cpufreq-0.6.1 to use cpupower instead of cpufrequtils.
 
+* 0.1.1     30.01.2015  Siim Ainsaar
+- Link to -lcpupower, not -lcpufreq
+

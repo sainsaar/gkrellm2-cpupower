@@ -6,7 +6,7 @@ GTK_LIB = `pkg-config gtk+-2.0 --libs`
 FLAGS = -O2 -Wall -fPIC $(GTK_INCLUDE)
 LIBS = $(GTK_LIB)
 
-LFLAGS = -shared -lcpufreq
+LFLAGS = -shared -lcpupower
 
 CC = gcc $(CFLAGS) $(FLAGS)
 
