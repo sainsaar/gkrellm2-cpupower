@@ -1,0 +1,52 @@
+README for gkrellm2-cpufreq
+===========================
+Christoph Winkelmann <chw@tks6.net>
+
+Description:
+------------
+gkrellm2-cpufreq consists of two components:
+
+1) A plugin for gkrellm 2.0 (http://www.gkrellm.net) called
+   cpufreq.so displaying the current CPU frequency numerically and by
+   the position of a slider, optionally the current cpufreq governor
+   and the CPU temperature from /proc/acpi
+2) A bash script called cpufreqnextgovernor allowing to set the cpufreq
+   governor via the plugin.
+
+The plugin reads the CPU frequency and the cpufreq governor using cpufrequtils
+and displays it.
+
+Clicking on the governor name will toggle the governor.
+Moving the slider will reset the CPU frequency if the userspace
+governor is active.
+
+The slider position also represents the current frequency, on the left
+for 0, on the right for the maximal frequency, which is determined as
+the maximum found
+- in the configuration file
+- using cpufrequtils
+- in current operation
+Note: The maximal frequency found is NOT saved in the configuration
+file unless the configuration page is viewed by pressing the right
+mouse button on the plugin.
+
+Options:
+--------
+Right-click on the plugin to set the options:
+- The display of the governor name may be switched off
+- The display of the slider may be switched off
+- The plugin can set the userspace governor when moving the slider
+- The control for multiple processors can be coupled
+
+Installation:
+-------------
+See file INSTALL
+
+License:
+--------
+See file LICENSE
+
+Anything else:
+--------------
+Suggestions are welcome! <chw@tks6.net>
+

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cpu="$1"
+
+# determine actual governor
+actual_gov=`cpufreq-info -c $cpu -p | sed 's/.*\ //'`
+
+# determine available governors
+avail_gov=`cpufreq-info -c $cpu -g`
+
+avail_gov1=`echo $avail_gov | sed "s/.*$actual_gov//"`
+avail_gov2=`echo $avail_gov | sed "s/$actual_gov.*//"`
+avail_gov=`echo "$avail_gov1 $avail_gov2" | sed "s/^\ //"`
+
+next_gov=`echo $avail_gov | sed "s/\ .*//"`
+
+cpufreq-set -c $cpu -g $next_gov

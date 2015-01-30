@@ -1,0 +1,45 @@
+Installation of gkrellm2-cpufreq
+================================
+Christoph Winkelmann <chw@tks6.net>
+
+Requirements
+------------
+* gkrellm 2.0.0 or higher
+* linux kernel >= 2.6.0 including the respective cpufreq-driver for your CPU
+* cpufrequtils
+  (see http://www.kernel.org/pub/linux/utils/kernel/cpufreq/cpufrequtils.html)
+
+If you want to change the CPU frequency and/or cpufreq governor using
+the plugin, you need moreover:
+
+* sudo (http://www.sudo.ws/sudo/) 
+
+Installation
+------------
+1) To compile the plugin, type 'make'
+2) To install the plugin to foo/usr/lib/gkrellm2/plugins/ and
+   the bash script cpufreqnextgovernor to foo/usr/sbin/, type
+     'make DESTDIR=foo install'
+   Alternatively, you may install the plugin manually to
+   ~/.gkrellm2/plugins/ (if you don't have root permissions)
+
+Post-Install
+------------
+1) To allow the plugin to set frequencies and governors, add the following lines
+   to your /etc/sudoers file, using visudo (as root, replacing /usr/bin with
+   the path to cpufreq-set on your system):
+   <user> <hostname> = (root) NOPASSWD: /usr/bin/cpufreq-set -c [0-9]* -g userspace
+   <user> <hostname> = (root) NOPASSWD: /usr/bin/cpufreq-set -c [0-9]* -f [0-9]*
+   <user> <hostname> = (root) NOPASSWD: /usr/sbin/cpufreqnextgovernor
+   where <user> is the user that runs gkrellm
+   and <hostname> is the name of the host to set the CPU frequency/governor.
+   Alternatively you may type 'make install-sudo', which tries to do this
+   automatically. This does not involve the syntax checking of visudo.
+   Use 'make install-sudo' at your own risk!
+2) To allow the bash script (or any userspace program) to change the
+   CPU frequency, the userspace governor must be available.
+
+Any problems?
+-------------
+Feel free to contact me <chw@tks6.net> if you encounter any problems.
+
