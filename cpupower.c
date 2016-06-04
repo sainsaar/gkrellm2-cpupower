@@ -65,7 +65,7 @@
 */
 #define  STYLE_NAME	"cpupower"
 
-#define NCPU_MAX 8
+#define NCPU_MAX 16
 
 static unsigned int ncpu;
 static unsigned long khz_max;
