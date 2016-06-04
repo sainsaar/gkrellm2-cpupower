@@ -22,7 +22,7 @@ install: cpupower.so
 install-sudo:
 	echo "$(USER) ALL = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -g userspace" >> /etc/sudoers
 	echo "$(USER) ALL = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -f [0-9]*" >> /etc/sudoers
-	echo "$(USER) ALL = (root) NOPASSWD: /usr/sbin/cpufreqnextgovernor" >> /etc/sudoers
+	echo "$(USER) ALL = (root) NOPASSWD: /usr/sbin/cpufreqnextgovernor [0-9]*" >> /etc/sudoers
 
 clean:
 	rm -f *.o core *.so* *.bak *~
