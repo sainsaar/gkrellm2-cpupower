@@ -55,7 +55,7 @@
 #include <cpufreq.h>
 
 /* version number */
-#define  VERSION        "0.1"
+#define  VERSION        "0.1.5"
 
 /* name in the configuration tree */
 #define  CONFIG_NAME	"CPUpower"
