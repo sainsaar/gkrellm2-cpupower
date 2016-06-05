@@ -42,7 +42,10 @@
  *
  * date         version   comment
  * 30/01/2015   0.1       Started the project
- * 30/01/2015   0.1.3     Minor documentation cleanup
+ * 30/01/2015   0.1.5     Minor documentation cleanup
+ * 05/06/2016   0.1.6     Fix retrieval of current und available governors
+ *                        Increase max CPUs to 16
+ *                        New sudo configuration
  *
  *   gcc -Wall -fPIC -Wall `pkg-config --cflags gtk+-2.0` -c cpupower.c
  *   gcc -shared -lcpupower -Wl -o cpupower.so cpupower.o
@@ -55,7 +58,7 @@
 #include <cpufreq.h>
 
 /* version number */
-#define  VERSION        "0.1.5"
+#define  VERSION        "0.1.6"
 
 /* name in the configuration tree */
 #define  CONFIG_NAME	"CPUpower"

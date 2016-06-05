@@ -17,3 +17,6 @@
 - Made the original author's name less prominent, because he is not involved
 - in this project.
 
+* 0.1.6     05.06.2016  Lars Wendler, Siim Ainsaar
+- Fix retrieval of current und available governors. Increase max CPUs to 16.
+- New sudo configuration. Gentoo ebuild.
