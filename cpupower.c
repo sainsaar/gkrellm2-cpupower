@@ -55,7 +55,7 @@
 #include <cpufreq.h>
 
 /* version number */
-#define  VERSION        "0.1"
+#define  VERSION        "0.1.5"
 
 /* name in the configuration tree */
 #define  CONFIG_NAME	"CPUpower"
@@ -65,7 +65,7 @@
 */
 #define  STYLE_NAME	"cpupower"
 
-#define NCPU_MAX 8
+#define NCPU_MAX 16
 
 static unsigned int ncpu;
 static unsigned long khz_max;

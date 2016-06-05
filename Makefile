@@ -20,9 +20,10 @@ install: cpupower.so
 	install -g root -o root -D -m 755 cpufreqnextgovernor $(DESTDIR)/usr/sbin/cpufreqnextgovernor
 
 install-sudo:
-	echo "$(USER) ALL = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -g userspace" >> /etc/sudoers
-	echo "$(USER) ALL = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -f [0-9]*" >> /etc/sudoers
-	echo "$(USER) ALL = (root) NOPASSWD: /usr/sbin/cpufreqnextgovernor" >> /etc/sudoers
+	mkdir -p $(DESTDIR)/etc/sudoers.d
+	echo "%trusted ALL = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -g userspace" >> $(DESTDIR)/etc/sudoers.d/gkrellm2-cpupower
+	echo "%trusted ALL = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -f [0-9]*" >> $(DESTDIR)/etc/sudoers.d/gkrellm2-cpupower
+	echo "%trusted ALL = (root) NOPASSWD: /usr/sbin/cpufreqnextgovernor [0-9]*" >> $(DESTDIR)/etc/sudoers.d/gkrellm2-cpupower
 
 clean:
 	rm -f *.o core *.so* *.bak *~
