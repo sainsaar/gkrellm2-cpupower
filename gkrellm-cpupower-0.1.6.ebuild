@@ -1,8 +1,8 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI="2"
+EAPI=6
 
 inherit gkrellm-plugin
 
@@ -17,27 +17,25 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-S=${WORKDIR}/${MY_P}
+S="${WORKDIR}/${MY_P}"
 
 # Collision with /usr/sbin/cpufreqnextgovernor
-RDEPEND="sys-power/cpupower
-		app-admin/sudo
-		!x11-plugins/gkrellm-cpufreq
-		"
+RDEPEND="app-admin/sudo
+	sys-power/cpupower
+	!x11-plugins/gkrellm-cpufreq"
 
-PLUGIN_SO=cpupower.so
+PLUGIN_SO="cpupower.so"
 
 src_install() {
 	gkrellm-plugin_src_install
-	exeinto /usr/sbin
-	doexe cpufreqnextgovernor
+	dosbin cpufreqnextgovernor
+	emake DESTDIR="${D}" install-sudo
 }
 
 pkg_postinst() {
 	echo
-	einfo "Add these lines to /etc/sudoers.d/gkrellm2-cpupower to allow users to change cpu governor and speed:"
-	einfo "%trusted ALL = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -g userspace"
-	einfo "%trusted ALL = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -f [0-9]*"
-	einfo "%trusted ALL = (root) NOPASSWD: /usr/sbin/cpufreqnextgovernor [0-9]*"
+	einfo "For changing gouvernor and CPU frequencies as user create the \"trusted\""
+	einfo "group and add those users to that group which should be allowed to perform"
+	einfo "these changes."
 	echo
 }
