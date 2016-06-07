@@ -20,7 +20,7 @@ install: cpupower.so
 
 install-sudo:
 	mkdir -p $(DESTDIR)/etc/sudoers.d
-	echo "%trusted ALL = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -g userspace" >> $(DESTDIR)/etc/sudoers.d/gkrellm2-cpupower
+	echo "%trusted ALL = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -g [a-z]*" >> $(DESTDIR)/etc/sudoers.d/gkrellm2-cpupower
 	echo "%trusted ALL = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -f [0-9]*" >> $(DESTDIR)/etc/sudoers.d/gkrellm2-cpupower
 
 clean:
