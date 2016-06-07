@@ -18,8 +18,7 @@ the plugin, you need moreover:
 Installation
 ------------
 1) To compile the plugin, type 'make'
-2) To install the plugin to foo/usr/lib/gkrellm2/plugins/ and
-   the bash script cpufreqnextgovernor to foo/usr/sbin/, type
+2) To install the plugin to foo/usr/lib/gkrellm2/plugins/, type
      'make DESTDIR=foo install'
    Alternatively, you may install the plugin manually to
    ~/.gkrellm2/plugins/ (if you don't have root permissions)
@@ -31,13 +30,12 @@ Post-Install
    the path to cpupower on your system):
    <user> <hostname> = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -g userspace
    <user> <hostname> = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -f [0-9]*
-   <user> <hostname> = (root) NOPASSWD: /usr/sbin/cpufreqnextgovernor [0-9]*
    where <user> is the user that runs gkrellm
    and <hostname> is the name of the host to set the CPU frequency/governor.
    Alternatively you may type 'make install-sudo', which tries to do this
    automatically. This does not involve the syntax checking of visudo.
    Use 'make install-sudo' at your own risk!
-2) To allow the bash script (or any userspace program) to change the
+2) To allow the plugin (or any userspace program) to change the
    CPU frequency, the userspace governor must be available.
 
 Any problems?
