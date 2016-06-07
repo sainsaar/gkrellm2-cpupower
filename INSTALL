@@ -28,7 +28,7 @@ Post-Install
 1) To allow the plugin to set frequencies and governors, add the following lines
    to your /etc/sudoers file, using visudo (as root, replacing /usr/bin with
    the path to cpupower on your system):
-   <user> <hostname> = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -g [a-z]*
+   <user> <hostname> = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -g [[\:lower\:]]*
    <user> <hostname> = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -f [0-9]*
    where <user> is the user that runs gkrellm
    and <hostname> is the name of the host to set the CPU frequency/governor.
