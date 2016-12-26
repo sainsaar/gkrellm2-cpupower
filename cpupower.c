@@ -569,7 +569,7 @@ GkrellmMonitor* gkrellm_init_plugin(void)
   monitor = &plugin_mon;
 
   /* determine number of cpus */
-  for( ncpu = 0; cpufreq_cpu_exists(ncpu)==0; ++ncpu )
+  for( ncpu = 0; cpufreq_get_freq_kernel(ncpu)>0; ++ncpu )
     ;
   ncpu = ncpu > NCPU_MAX ? NCPU_MAX : ncpu;
 
