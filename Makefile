@@ -17,13 +17,11 @@ cpupower.so: $(OBJS)
 
 install: cpupower.so
 	install -D -m 755 -s cpupower.so $(DESTDIR)/usr/lib/gkrellm2/plugins/cpupower.so
-	install -g root -o root -D -m 755 cpufreqnextgovernor $(DESTDIR)/usr/sbin/cpufreqnextgovernor
 
 install-sudo:
 	mkdir -p $(DESTDIR)/etc/sudoers.d
-	echo "%trusted ALL = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -g userspace" >> $(DESTDIR)/etc/sudoers.d/gkrellm2-cpupower
+	echo "%trusted ALL = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -g [[\:lower\:]]*" >> $(DESTDIR)/etc/sudoers.d/gkrellm2-cpupower
 	echo "%trusted ALL = (root) NOPASSWD: /usr/bin/cpupower -c [0-9]* frequency-set -f [0-9]*" >> $(DESTDIR)/etc/sudoers.d/gkrellm2-cpupower
-	echo "%trusted ALL = (root) NOPASSWD: /usr/sbin/cpufreqnextgovernor [0-9]*" >> $(DESTDIR)/etc/sudoers.d/gkrellm2-cpupower
 
 clean:
 	rm -f *.o core *.so* *.bak *~

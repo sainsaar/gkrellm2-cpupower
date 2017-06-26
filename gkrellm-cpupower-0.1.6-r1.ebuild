@@ -19,16 +19,13 @@ IUSE=""
 
 S="${WORKDIR}/${MY_P}"
 
-# Collision with /usr/sbin/cpufreqnextgovernor
 RDEPEND="app-admin/sudo
-	sys-power/cpupower
-	!x11-plugins/gkrellm-cpufreq"
+	sys-power/cpupower"
 
 PLUGIN_SO="cpupower.so"
 
 src_install() {
 	gkrellm-plugin_src_install
-	dosbin cpufreqnextgovernor
 	emake DESTDIR="${D}" install-sudo
 }
 

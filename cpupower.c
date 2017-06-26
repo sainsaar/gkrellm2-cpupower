@@ -130,9 +130,15 @@ static void read_khz() {
 }
 
 static void next_governor(unsigned int cpu) {
+
+  struct cpufreq_available_governors *govs;
+
+  for ( govs = cpufreq_get_available_governors(cpu); (govs->next!= NULL) && strcmp(govs->governor,governor[cpu]); govs=govs->next ) {}
+
   char cmd[length];
-  sprintf(cmd, "sudo /usr/sbin/cpufreqnextgovernor %u", cpu);
+  sprintf(cmd, "sudo cpupower -c %u frequency-set -g %s", cpu, govs->next==NULL ? govs->first->governor : govs->next->governor);
   system(cmd);
+  cpufreq_put_available_governors(govs->first);
 }
 
 static void governor_userspace(unsigned int cpu) {
@@ -563,7 +569,7 @@ GkrellmMonitor* gkrellm_init_plugin(void)
   monitor = &plugin_mon;
 
   /* determine number of cpus */
-  for( ncpu = 0; cpufreq_cpu_exists(ncpu)==0; ++ncpu )
+  for( ncpu = 0; cpufreq_get_freq_kernel(ncpu)>0; ++ncpu )
     ;
   ncpu = ncpu > NCPU_MAX ? NCPU_MAX : ncpu;
 
