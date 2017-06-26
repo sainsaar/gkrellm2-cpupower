@@ -20,3 +20,7 @@
 * 0.1.6     05.06.2016  Lars Wendler, Siim Ainsaar
 - Fix retrieval of current und available governors. Increase max CPUs to 16.
 - New sudo configuration. Gentoo ebuild.
+
+* 0.2       26.06.2017  Tomasz Goliński
+- Get rid of cpufreqnextgovernor script and do its work in cpupower.c.
+- Use cpufreq_get_freq_kernel instead of removed cpufreq_cpu_exists.

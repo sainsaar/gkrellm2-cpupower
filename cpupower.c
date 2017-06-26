@@ -46,6 +46,8 @@
  * 05/06/2016   0.1.6     Fix retrieval of current und available governors
  *                        Increase max CPUs to 16
  *                        New sudo configuration
+ * 26/06/2017   0.2       Get rid of cpufreqnextgovernor script and do its work in cpupower.c
+ *                        cpufreq_cpu_exists has been removed from the kernel 4.7, use cpufreq_get_freq_kernel
  *
  *   gcc -Wall -fPIC -Wall `pkg-config --cflags gtk+-2.0` -c cpupower.c
  *   gcc -shared -lcpupower -Wl -o cpupower.so cpupower.o
